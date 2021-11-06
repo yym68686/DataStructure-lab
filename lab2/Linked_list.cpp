@@ -185,3 +185,6 @@ void ADT_list::Reverse(){
     head->next = tmp;
 }
 
+void ADT_list::Bubble_Sort(){
+    
+}

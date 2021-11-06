@@ -25,5 +25,6 @@ public:
     void DeleteElem(int index);
     void Remove();
     void Reverse();
+    void Bubble_Sort();
 };
 #endif
