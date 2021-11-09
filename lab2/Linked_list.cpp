@@ -186,9 +186,10 @@ void ADT_list::Reverse(){
 }
 
 void ADT_list::Bubble_Sort(){
-    for (int i = 0; i < length - 1; i++){
+    for (int i = 1; i <= length ; i++){
         node *p = head, *temp = p->next, *tmp = temp->next;
-        while (tmp != NULL){
+        int times = length - i;
+        while (times--){
             if (temp->value > tmp->value){
                 p->next = temp->next;
                 temp->next = tmp->next;
