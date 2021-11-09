@@ -26,5 +26,6 @@ public:
     void Remove();
     void Reverse();
     void Bubble_Sort();
+    void Select_sort();
 };
 #endif
