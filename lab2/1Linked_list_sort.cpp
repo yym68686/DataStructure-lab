@@ -10,7 +10,7 @@ int main(){
     ADTlist.InsertElem(6, 7);
     ADTlist.InsertElem(7, 0);
     ADTlist.ListTraverse();
-    ADTlist.Bubble_Sort();
+    ADTlist.Select_sort();
     ADTlist.ListTraverse();
     ADTlist.DestoryList();
 }

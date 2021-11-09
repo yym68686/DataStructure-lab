@@ -58,8 +58,9 @@ int ADT_list::LocateElem(int num){
     int index = 0;
     while (p != NULL){
         if (p->value == num)
-            return ++index;
+            return index;
         p = p->next;
+        index++;
     }
     return 0;
 }
@@ -103,7 +104,7 @@ int ADT_list::SetElem(int index, int num){
     int i = 0;
     p = head->next;
     while (p != NULL){
-        if (index != ++i) {
+        if (index != i++) {
             p = p->next;
             continue;
         }
@@ -203,5 +204,16 @@ void ADT_list::Bubble_Sort(){
 }
 
 void ADT_list::Select_sort(){
-
+    node *p = head->next, *temp = p->next;
+    for (int i = 0; i < length - 1; i++){
+        int minn = 0x3f3f3f3f;
+        while(temp){
+            minn = temp->value < minn ? temp->value : minn;
+            temp = temp->next;
+        }
+        SetElem(LocateElem(minn), p->value);
+        SetElem(i, minn);
+        p = p->next;
+        temp = p->next;
+    }
 }
