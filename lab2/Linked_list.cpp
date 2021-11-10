@@ -233,3 +233,22 @@ ADT_list ADT_list::Union(ADT_list B){
     // B.ListTraverse();
     return C;
 }
+
+void ADT_list::Josephus(int m){
+    node *p = head->next, *last = p, *tmp = head;
+    while(last->next)
+        last = last->next;
+    last->next = head->next;
+    while(length--){
+        int temp = m;
+        while(--temp){
+            p = p->next;
+            tmp = tmp->next;
+        }
+        printf("%d ", p->value);
+        tmp->next = p->next;
+        last = p;
+        p = p->next;
+        free(last);
+    }
+}
