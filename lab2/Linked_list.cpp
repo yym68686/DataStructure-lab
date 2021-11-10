@@ -62,7 +62,7 @@ int ADT_list::LocateElem(int num){
         p = p->next;
         index++;
     }
-    return 0;
+    return -1;
 }
 
 int ADT_list::PriorElem(int cur_num){
@@ -216,4 +216,20 @@ void ADT_list::Select_sort(){
         p = p->next;
         temp = p->next;
     }
+}
+
+ADT_list ADT_list::Union(ADT_list B){
+    ADT_list C;
+    C.InitLIst();
+    int index = 0;
+    node *p = head->next;
+    while(p){
+        if (B.LocateElem(p->value) >= 0){
+            C.InsertElem(++index, p->value);
+        }
+        p = p->next;
+    }
+    // ListTraverse();
+    // B.ListTraverse();
+    return C;
 }

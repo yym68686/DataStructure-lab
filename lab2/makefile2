@@ -1,7 +1,7 @@
 CC = g++
 OUT = a.exe
-OBJ = 2Linked_list_union.o Linked_list.o
-IN = 2Linked_list_union.cpp Linked_list.cpp
+OBJ = 1Sequence_list_sort.o Sequence_list.o
+IN = Sequence_list.cpp 1Sequence_list_sort.cpp
 
 build: $(OUT)
 

@@ -66,7 +66,7 @@ public:
             p = p->next;
             index++;
         }
-        return 0;
+        return -1;
     }
     int PriorElem(int cur_num){
         node *p, *temp;
