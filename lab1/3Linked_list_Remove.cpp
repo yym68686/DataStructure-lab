@@ -61,8 +61,9 @@ public:
         int index = 0;
         while (p != NULL){
             if (p->value == num)
-                return ++index;
+                return index;
             p = p->next;
+            index++;
         }
         return 0;
     }
@@ -102,7 +103,7 @@ public:
         int i = 0;
         p = head->next;
         while (p != NULL){
-            if (index != ++i) {
+            if (index != i++) {
                 p = p->next;
                 continue;
             }
