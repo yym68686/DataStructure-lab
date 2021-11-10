@@ -2,8 +2,8 @@
 # NUM = 2
 NUM = 3
 
-LIST = Linked_list
-# LIST = Sequence_list
+# LIST = Linked_list
+LIST = Sequence_list
 
 # OP = sort
 # OP = union

@@ -21,5 +21,6 @@ public:
     void Bubble_Sort();
     void Select_sort();
     ADT_list Union(ADT_list);
+    void Josephus(int);
 };
 #endif

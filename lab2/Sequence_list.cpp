@@ -114,3 +114,12 @@ ADT_list ADT_list::Union(ADT_list B){
     }
     return C;
 }
+
+void ADT_list::Josephus(int m){
+    int index = 0;
+    while(rear){
+        index = (index + m - 1) % rear;
+        printf("%d ", list[index]);
+        DeleteElem(index + 1);
+    }
+}
