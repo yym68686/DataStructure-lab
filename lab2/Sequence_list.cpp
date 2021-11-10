@@ -8,7 +8,7 @@ void ADT_list::DestoryList(){
     rear = -1;
 }
 void ADT_list::ClearList(){
-    for(int i = 0; i <= rear; i++){
+    for(int i = 0; i < rear; i++){
         list[i] = 0;
     }
 }
@@ -25,7 +25,7 @@ int ADT_list::GetElem(int num){
     return *(list + num);
 }
 int ADT_list::LocateElem(int num){
-    for (int i = 0; i <= rear; i++){
+    for (int i = 0; i < rear; i++){
         if (list[i] == num){
             return i;
         }
@@ -34,7 +34,7 @@ int ADT_list::LocateElem(int num){
 }
 int ADT_list::PriorElem(int cur_num){
     int pre;
-    for (int i = 0; i <= rear; i++){
+    for (int i = 0; i < rear; i++){
         if (list[i] == cur_num){
             return i - 1;
         }
@@ -42,7 +42,7 @@ int ADT_list::PriorElem(int cur_num){
     return -1;
 }
 int ADT_list::NextElem(int cur_num){
-    for (int i = 0; i <= rear; i++){
+    for (int i = 0; i < rear; i++){
         if (list[i] == cur_num && i != rear){
             return i + 1;
         }
@@ -102,4 +102,15 @@ void ADT_list::Select_sort(){
         SetElem(LocateElem(minn), list[i]);
         SetElem(i, minn);
     }
+}
+ADT_list ADT_list::Union(ADT_list B){
+    ADT_list C;
+    C.InitLIst();
+    int index = 0;
+    for (int i = 0; i < rear; i++){
+        if (B.LocateElem(list[i]) >= 0){
+            C.InsertElem(++index, list[i]);
+        }
+    }
+    return C;
 }

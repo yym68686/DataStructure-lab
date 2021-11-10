@@ -27,7 +27,7 @@ public:
         return *(list + num);
     }
     int LocateElem(int num){
-        for (int i = 0; i <= rear; i++){
+        for (int i = 0; i < rear; i++){
             if (list[i] == num){
                 return i;
             }
@@ -36,7 +36,7 @@ public:
     }
     int PriorElem(int cur_num){
         int pre;
-        for (int i = 0; i <= rear; i++){
+        for (int i = 0; i < rear; i++){
             if (list[i] == cur_num){
                 return i - 1;
             }
@@ -44,7 +44,7 @@ public:
         return -1;
     }
     int NextElem(int cur_num){
-        for (int i = 0; i <= rear; i++){
+        for (int i = 0; i < rear; i++){
             if (list[i] == cur_num && i != rear){
                 return i + 1;
             }

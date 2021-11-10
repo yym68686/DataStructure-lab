@@ -20,5 +20,6 @@ public:
     void Remove();
     void Bubble_Sort();
     void Select_sort();
+    ADT_list Union(ADT_list);
 };
 #endif

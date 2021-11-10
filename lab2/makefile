@@ -1,7 +1,10 @@
+NUM = 2
+# LIST = Linked_list
+LIST = Sequence_list
 CC = g++
 OUT = a.exe
-OBJ = 2Linked_list_union.o Linked_list.o
-IN = 2Linked_list_union.cpp Linked_list.cpp
+OBJ = $(NUM)$(LIST)_union.o $(LIST).o
+IN = $(NUM)$(LIST)_union.cpp $(LIST).cpp
 
 build: $(OUT)
 
