@@ -2,7 +2,7 @@
 #include <algorithm>
 int n, l, t, a[999], num, speed[999], use[999];
 int main(){
-    freopen("5CSP2", "r", stdin);
+    freopen("5CSP1", "r", stdin);
     scanf("%d%d%d", &n, &l, &t);
     while (scanf("%d", &a[num]) != EOF) num++;
     std::fill(speed, speed + 999, 1);
