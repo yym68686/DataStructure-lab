@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <algorithm>
 using namespace std;
-int m, result[111111], y[111111], num = 1, maxx = 0, ans = 0, onenum, indexx, error, temp;
+int m, num = 1, maxx = 0, ans, onenum, indexx, error, temp;
 typedef struct Test
 {
        int y;
