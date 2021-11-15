@@ -8,9 +8,7 @@ void ADT_Stack::DestoryStack(){
     rear = -1;
 }
 void ADT_Stack::ClearStack(){
-    for(int i = 1; i <= rear; i++){
-        Stack[i] = 0;
-    }
+    rear = 0;
 }
 bool ADT_Stack::StackEmpty(){
     return rear == 0 ? true : false;
@@ -18,7 +16,7 @@ bool ADT_Stack::StackEmpty(){
 int ADT_Stack::StackLength(){
     return rear;
 }
-int ADT_Stack::GetTop(){
+Pos ADT_Stack::GetTop(){
     return Stack[rear];
 }
 void ADT_Stack::StackTraverse(){
@@ -26,11 +24,14 @@ void ADT_Stack::StackTraverse(){
         printf("%d ", Stack[i]);
     printf("\n");
 }
-void ADT_Stack::Push(int num){
-    Stack[++rear] = num;
+void ADT_Stack::Push(Pos point){
+    Stack[++rear] = point;
 }
-void ADT_Stack::Pop(){
-    rear--;
+Pos ADT_Stack::Pop(){
+    return Stack[rear--];
+}
+Pos ADT_Stack::operator [] (int index) {
+    return Stack[index];
 }
 // int ADT_Stack::LocateElem(int num){
 //     for (int i = 1; i <= rear; i++)

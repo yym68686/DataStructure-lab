@@ -1,18 +1,7 @@
-# NUM = 1
-# NUM = 2
-NUM = 3
-
-# LIST = Linked_list
-LIST = Sequence_list
-
-# OP = sort
-# OP = union
-OP = Josephus
-
 CC = g++
 OUT = a.exe
-OBJ = $(NUM)$(LIST)_$(OP).o $(LIST).o
-IN = $(NUM)$(LIST)_$(OP).cpp $(LIST).cpp
+OBJ = 3Eight_Queens.o Sequence_Stack.o
+IN = 3Eight_Queens.cpp Sequence_Stack.cpp
 
 build: $(OUT)
 

@@ -1,18 +1,24 @@
 #ifndef SEQUENCE_Stack_H
 #define SEQUENCE_Stack_H
+typedef struct
+{
+	int x;
+	int y;
+} Pos;
 class ADT_Stack{
 public:
-    int Stack[999];
+    Pos Stack[9999];
     int rear = -1;
     void InitStack();
     void DestoryStack();
     void ClearStack();
     bool StackEmpty();
     int StackLength();
-    int GetTop();
+    Pos GetTop();
     void StackTraverse();
-    void Push(int);
-    void Pop();
+    void Push(Pos);
+    Pos Pop();
+    Pos operator [] (int);
     // int LocateElem(int num);
     // int PriorElem(int cur_num);
     // int NextElem(int cur_num);
