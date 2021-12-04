@@ -11,7 +11,6 @@ void BinaryTree::InitBiTree(){
 }
 void BinaryTree::DestoryBiTree(BiTNode *p){
     if (p){
-        // printf("*%c", p->data);
         if (p->left) DestoryBiTree(p->left), p->left = NULL;
         if (p->right) DestoryBiTree(p->right), p->right = NULL;
         free(p);
@@ -24,6 +23,7 @@ BinaryTree::BiTNode* BinaryTree::CreateBiTree(){
     if (ch != '#') {
         tmp = (BiTNode *)malloc(sizeof(BiTNode));
         tmp->data = ch;
+        Nodenum++;
         tmp->left = CreateBiTree();
         tmp->right = CreateBiTree();
     }
@@ -168,4 +168,17 @@ void BinaryTree::DeleteChild(BiTNode *p, int LR){
         DestoryBiTree(p->right);
     else
         DestoryBiTree(p->left);
+}
+int BinaryTree::Complete_binary_tree(BiTNode *p){
+    BiTNode *queue[999];
+    int head = 0, rear = 0, num = 1;
+    queue[rear++] = root;
+    while(head < rear){
+        if (queue[head]->left) queue[rear++] = queue[head]->left, num++;
+        else if (num != Nodenum) return 0;
+        if (queue[head]->right) queue[rear++] = queue[head]->right, num++;
+        else if (num != Nodenum) return 0;
+        head++;
+    }
+    return 1;
 }

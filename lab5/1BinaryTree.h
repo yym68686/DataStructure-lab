@@ -8,6 +8,7 @@ public:
         struct BiTNode *left, *right;
     } BiTNode;
     BiTNode *root;
+    int Nodenum = 0;
     void InitBiTree();
     void DestoryBiTree(BiTNode *p);
     BiTNode* CreateBiTree();
@@ -33,5 +34,6 @@ public:
     void Assign(BiTNode *p, char value);
     void InsertChild(BiTNode *p, BiTNode *c, int LR);
     void DeleteChild(BiTNode *p, int LR);
+    int Complete_binary_tree(BiTNode *p);
 };
 #endif

@@ -1,7 +1,10 @@
 CC = g++
 OUT = a.exe
-OBJ = 1BinaryTree.o 3delete.o
-IN = 1BinaryTree.cpp 3delete.cpp
+# TARGET = 2Nonrecursive
+# TARGET = 3delete
+TARGET = 4Complete_binary_tree
+OBJ = 1BinaryTree.o $(TARGET).o
+IN = 1BinaryTree.cpp $(TARGET).cpp
 
 build: $(OUT)
 
