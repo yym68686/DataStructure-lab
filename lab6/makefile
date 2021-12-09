@@ -1,8 +1,10 @@
 CC = g++
 OUT = a.exe
-TARGET =
-OBJ = 1Graph.o $(TARGET).o
-IN = 1Graph.cpp $(TARGET).cpp
+TARGET1 = 3BinaryTreeweigh
+TARGET2 = 3BinaryTree
+# TARGET2 = 1Graph
+OBJ = $(TARGET2).o $(TARGET1).o
+IN = $(TARGET2).cpp $(TARGET1).cpp
 
 build: $(OUT)
 
