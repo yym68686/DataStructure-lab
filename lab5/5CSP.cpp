@@ -2,7 +2,7 @@
 int n, L, r, t, A[666][666], num;
 float sum;
 int main(){
-    freopen("5CSP1", "r", stdin);
+    freopen("5CSP2", "r", stdin);
     scanf("%d%d%d%d", &n, &L, &r, &t);
     for (int i = 0; i < n; i++)
     for (int j = 0; j < n; j++)
