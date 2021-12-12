@@ -1,4 +1,3 @@
-//dijkstra算法
 #include <iostream>
 using namespace std;
 #define INF 2147483647
@@ -31,35 +30,13 @@ void dijkstra(){
     {
         visit[temp] = true;
         for (int j = head[temp]; j; j = edge[j].next)
-        {
             if (!visit[edge[j].v] && dis[edge[j].v] > dis[temp] + edge[j].len)
                 dis[edge[j].v] = dis[temp] + edge[j].len;
-        }
         minn = INF;
         for (int j = 1; j <= n; j++)
-        {
             if (!visit[j] && minn > dis[j])
-            {
-                minn = dis[j];
-                temp = j;
-            }
-        }
+                minn = dis[j], temp = j;
     }
-    // visit[temp] = true;
-    // for (int i = 1; i < n; i++){
-    //     for (int j = head[temp]; j; j = edge[j].next){
-    //         if (!visit[edge[j].v] && dis[edge[j].v] > dis[temp] + edge[j].len)
-    //             dis[edge[j].v] = dis[temp] + edge[j].len;
-    //     }
-    //     minn = INF;
-    //     for (int j = 1; j <= n; j++){
-    //         if (!visit[j] && minn > dis[j]){
-    //             minn = dis[j];
-    //             temp = j;
-    //         }
-    //     }
-    //     visit[temp] = true;
-    // }
 }
 
 int main(){
