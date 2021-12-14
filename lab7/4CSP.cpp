@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <cstdio>
 using namespace std;
-int n, m, x[222222], y[222222], z[222222], f[5555], sum, line;
+int n, m, f[5555], sum, line;
 int root(int x){
     return f[x] == x ? x : f[x] = root(f[x]);
 }
