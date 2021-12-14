@@ -8,8 +8,10 @@
 ```
 $ gcc -v
 gcc version 8.1.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project)
-$ (Get-ItemProperty -Path c:\windows\system32\hal.dll).VersionInfo.FileVersion
-10.0.19041.1151 (WinBuild.160101.0800)
+$ Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer | Format-List
+WindowsProductName         : Windows 10 Home China
+WindowsVersion             : 2009
+OsHardwareAbstractionLayer : 10.0.19041.1151
 ```
 # 上手指南
 
