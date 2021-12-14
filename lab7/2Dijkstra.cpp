@@ -40,6 +40,7 @@ void dijkstra(){
 }
 
 int main(){
+    freopen("2", "r", stdin);
     cin >> n >> m >> s;
     for (int i = 0; i < m; i++){
         cin >> from >> to >> len;
