@@ -1,8 +1,7 @@
 #include <stdio.h>
 int x[] = {62, 58, 88, 47, 73, 99, 35, 51, 93, 29, 37, 49, 56, 36, 48, 50};
 void quickSort(int num[], int left, int right) {
-    if (num == NULL) return;
-    if (left >= right) return;
+    if (num == NULL || left >= right) return;
     int i = left;
     int j = right;
     int temp = num[i];
