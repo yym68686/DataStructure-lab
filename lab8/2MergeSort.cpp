@@ -15,8 +15,7 @@ void mergesort(long long a[], long long s, long long mid, long long e, long long
         b[q++] = a[i++];
     while (j <= e)
         b[q++] = a[j++];
-    for (int i = s; i <= e;a[i]=b[i],i++)
-        ;
+    for (int i = s; i <= e;a[i]=b[i],i++);
 }
 void merge(long long a[], long long s, long long e, long long b[])
 {

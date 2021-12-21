@@ -4,20 +4,15 @@ class BinarySortTree{
 public:
     typedef struct treenode{
         int value;
-        treenode *left;
-        treenode *right;
-        treenode(){
-            value = 0;
-            left = right = NULL;
-        }
+        struct treenode *left;
+        struct treenode *right;
     }* node, binode;
-    node *root = new node;
+    node root = NULL;
     int flags[99];
     int search(int data, node point, node *father){
-        if (!point) return 0;
+        if (point == NULL) return 0;
         else if (point->value == data) return 1;
         else if (data < point->value) {
-            // printf("%d\n", point->value);
             *father = point;
             return search(data, point->left, father);
         }
@@ -27,20 +22,19 @@ public:
         }
     }
     void insert(int data){
-        node father = *root;
-        if (!search(data, *root, &father)) {
-            printf("%d*\n", father->value);
+        node father = root;
+        if (!search(data, root, &father)) {
             node q = (binode *)malloc(sizeof(binode));
             q->value = data;
-            if (!(*root)->value) *root = q;
+            q->left = q->right = NULL;
+            if (root == NULL) root = q;
             else if (data < father->value) father->left = q, printf("left: %d\n", father->left->value);
             else father->right = q, printf("right: %d\n", father->right->value);
         }
-        // if (data < father->value && data == 58) printf("%d--", root->left->value);
     }
     void deletenode(int data){
-        node father = *root;
-        if (search(data, *root, &father)){
+        node father = root;
+        if (search(data, root, &father)){
             node target;
             if (data < father->value) target = father->left;
             else target = father->right;
@@ -71,8 +65,8 @@ public:
                     father->left = maxnode;
                 }
             }
-            delete target;
-            // free(target);
+            // delete target;
+            free(target);
         }
     }
     void printtree(node root, int tab, int flag){
@@ -111,9 +105,7 @@ public:
 int main(){
     BinarySortTree Tree;
     int x[] = {62, 58, 88, 47, 73, 99, 35, 51, 93, 29, 37, 49, 56, 36, 48, 50};
-    for (int i = 0; i < sizeof(x) / sizeof(x[0]); i++){
+    for (int i = 0; i < sizeof(x) / sizeof(x[0]); i++)
         Tree.insert(x[i]);
-    }
-    Tree.printtree(*Tree.root, 0, 2);
-    // printf("%d", Tree.root->right->value);
+    Tree.printtree(Tree.root, 0, 2);
 }
