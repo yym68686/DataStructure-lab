@@ -6,9 +6,13 @@ public:
         int value;
         struct treenode *left;
         struct treenode *right;
+        treenode(){
+            value = 0;
+            left = right = NULL;
+        }
     }* node, binode;
     node root = NULL;
-    int flags[99];
+    int flags[99], rightflag = 0;
     int search(int data, node point, node *father){
         if (point == NULL) return 0;
         else if (point->value == data) return 1;
@@ -24,12 +28,11 @@ public:
     void insert(int data){
         node father = root;
         if (!search(data, root, &father)) {
-            node q = (binode *)malloc(sizeof(binode));
+            node q = new binode;
             q->value = data;
-            q->left = q->right = NULL;
             if (root == NULL) root = q;
-            else if (data < father->value) father->left = q, printf("left: %d\n", father->left->value);
-            else father->right = q, printf("right: %d\n", father->right->value);
+            else if (data < father->value) father->left = q;
+            else father->right = q;
         }
     }
     void deletenode(int data){
@@ -65,18 +68,17 @@ public:
                     father->left = maxnode;
                 }
             }
-            // delete target;
-            free(target);
+            delete target;
         }
     }
     void printtree(node root, int tab, int flag){
         int nextTab = tab;
-        flags[tab] = 1;
+        if (!rightflag) flags[tab] = 1;
+        rightflag = 0;
         printTabs(tab);
         if (root->value){
             if (flag == 2) {
                 printf("\\--> %d", root->value);
-                // printf("%d\n", root->left == NULL);
                 flags[tab] = 0;
             }
             else{
@@ -85,6 +87,7 @@ public:
         }
         printf("\n");
         if (root->left) {
+            if (root->right == NULL) flags[tab + 1] = 0, rightflag = 1;
             printtree(root->left, nextTab + 1, 1);
         }
         if (root->right) {
@@ -107,5 +110,7 @@ int main(){
     int x[] = {62, 58, 88, 47, 73, 99, 35, 51, 93, 29, 37, 49, 56, 36, 48, 50};
     for (int i = 0; i < sizeof(x) / sizeof(x[0]); i++)
         Tree.insert(x[i]);
+    Tree.printtree(Tree.root, 0, 2);
+    Tree.deletenode(47);
     Tree.printtree(Tree.root, 0, 2);
 }
