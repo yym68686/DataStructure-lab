@@ -114,8 +114,24 @@ void ADT_list::CreateList(char* str, int check){
     tmp->Checkcode = check;
 }
 
-void ADT_list::CheckList(){
-    
+int ADT_list::CheckList(){
+    node* p = head->next, *tmp = p;
+    if (!p) return 1;
+    while(p) {
+        int sum = 0;
+        for (int i = 0; i < strlen(p->information); i++)
+            sum += p->information[i];
+        if (p->number) {
+            node *temp = head;
+            sum += p->number;
+            while (temp->next != p) temp = temp->next;
+            sum += temp->Checkcode;
+        }
+        // printf("%d %d %d\n", sum % 113, p->Checkcode, p->number);
+        if (sum % 113 != p->Checkcode) return p->number + 100;
+        p = p->next;
+    }
+    return 1;
 }
 
 int ADT_list::SetElem(int index, int num){

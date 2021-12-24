@@ -11,7 +11,6 @@ int main(){
     list.ClearList();
     freopen("CheckBlockChain", "r", stdin);
     while (scanf("%s%d", &str, &check) != EOF) list.CreateList(str, check);
-    list.CheckList();
-
     list.ListTraverse();
+    (num = list.CheckList()) < 100 ? puts("Accept!") : printf("The %dth node Error!", num - 100);
 }

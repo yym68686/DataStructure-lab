@@ -23,7 +23,7 @@ public:
     int NextElem(int);
     void ListTraverse();
     void CreateList(char*, int);
-    void CheckList();
+    int CheckList();
     int SetElem(int index, int num);
     void InsertElem(char*);
     int GetCheckcode();
