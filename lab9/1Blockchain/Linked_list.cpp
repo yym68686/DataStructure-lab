@@ -1,6 +1,7 @@
 #include <malloc.h>
 #include <stdio.h>
-#include "5Linked_list.h"
+#include <string.h>
+#include "Linked_list.h"
 
 void ADT_list::InitLIst(){
     node *tmp = (node *)malloc(sizeof(node));
@@ -29,6 +30,7 @@ void ADT_list::ClearList(){
         free(temp);
     }
     length = 0;
+    head->next = NULL;
 }
 
 bool ADT_list::ListEmpty(){
@@ -52,99 +54,111 @@ ADT_list::node* ADT_list::GetElem(int index){
     return NULL;
 }
 
-// int ADT_list::LocateElem(int num){
-//     node *p;
-//     p = head->next;
-//     int index = 0;
-//     while (p != NULL){
-//         if (p->value == num)
-//             return index;
-//         p = p->next;
-//         index++;
-//     }
-//     return -1;
-// }
+int ADT_list::LocateElem(int num){
+    node *p;
+    p = head->next;
+    int index = 0;
+    while (p != NULL){
+        if (p->number == num)
+            return index;
+        p = p->next;
+        index++;
+    }
+    return -1;
+}
 
-// int ADT_list::PriorElem(int cur_num){
-//     node *p, *temp;
-//     p = head->next;
-//     while (p != NULL){
-//         temp = p;
-//         p = p->next;
-//         if (p != NULL && p->value == cur_num)
-//             return temp->value;
-//     }
-//     return 0;
-// }
+int ADT_list::PriorElem(int cur_num){
+    node *p, *temp;
+    p = head->next;
+    while (p != NULL){
+        temp = p;
+        p = p->next;
+        if (p != NULL && p->number == cur_num)
+            return temp->number;
+    }
+    return 0;
+}
 
-// int ADT_list::NextElem(int cur_num){
-//     node *p, *temp;
-//     p = head->next;
-//     while (p != NULL){
-//         temp = p;
-//         p = p->next;
-//         if (p != NULL && temp->value == cur_num)
-//             return p->value;
-//     }
-//     return 0;
-// }
+int ADT_list::NextElem(int cur_num){
+    node *p, *temp;
+    p = head->next;
+    while (p != NULL){
+        temp = p;
+        p = p->next;
+        if (p != NULL && temp->number == cur_num)
+            return p->number;
+    }
+    return 0;
+}
 
 void ADT_list::ListTraverse(){
     node *p;
     p = head->next;
+    puts("Block Chain Output:");
     while (p != NULL){
-        printf("%d %d %d %d\n", p->x1, p->y1, p->x2, p->y2);
+        printf("%d %s %d\n", p->number, p->information, p->Checkcode);
         p = p->next;
     }
     printf("\n");
 }
 
-// int ADT_list::SetElem(int index, int num){
-//     node *p;
-//     int i = 0;
-//     p = head->next;
-//     while (p != NULL){
-//         if (index != i++) {
-//             p = p->next;
-//             continue;
-//         }
-//         int old = p->value;
-//         p->value = num;
-//         return old;
-//     }
-//     return 0;
-// }
-
-void ADT_list::InsertElem(int index, int x1, int y1, int x2, int y2){
-    node *p, *temp;
-    int i = 0;
-    p = head;
+void ADT_list::CreateList(char* str, int check){
+    node *p = head;
+    while (p->next != NULL) p = p->next;
+    node *tmp = (node *)malloc(sizeof(node));
+    p->next = tmp;
+    tmp->next = NULL;
+    tmp->number = length;
+    strcpy(tmp->information, str);
     length++;
+    tmp->Checkcode = check;
+}
+
+void ADT_list::CheckList(){
+    
+}
+
+int ADT_list::SetElem(int index, int num){
+    node *p;
+    int i = 0;
+    p = head->next;
     while (p != NULL){
-        if (index != ++i) {
-            temp = p;
+        if (index != i++) {
             p = p->next;
             continue;
         }
-        temp = p->next;
-        node *tmp = (node *)malloc(sizeof(node));
-        p->next = tmp;
-        tmp->next = temp;
-        tmp->x1 = x1;
-        tmp->y1 = y1;
-        tmp->x2 = x2;
-        tmp->y2 = y2;
-        return;
+        int old = p->number;
+        p->number = num;
+        return old;
     }
-    node *tmp = (node *)malloc(sizeof(node));
-    temp->next = tmp;
-    tmp->x1 = x1;
-    tmp->y1 = y1;
-    tmp->x2 = x2;
-    tmp->y2 = y2;
-    tmp->next = NULL;
+    return 0;
 }
 
+void ADT_list::InsertElem(char* str){
+    node *p = head;
+    while (p->next != NULL) p = p->next;
+    node *tmp = (node *)malloc(sizeof(node));
+    p->next = tmp;
+    tmp->next = NULL;
+    tmp->number = length;
+    strcpy(tmp->information, str);
+    length++;
+    tmp->Checkcode = GetCheckcode();
+}
+int ADT_list::GetCheckcode(){
+    node* p = head;
+    while (p->next != NULL) p = p->next;
+    int sum = 0;
+    for (int i = 0; i < strlen(p->information); i++)
+        sum += p->information[i];
+    if (length > 1) {
+        sum += p->number;
+        p = head;
+        while (p->next->next) p = p->next;
+        sum += p->Checkcode;
+    }
+    return sum % 113;
+}
 void ADT_list::DeleteElem(int index){
     node *p, *temp;
     int i = 0;
@@ -162,23 +176,6 @@ void ADT_list::DeleteElem(int index){
     }
 }
 
-// void ADT_list::Remove(){
-//     node *p = head->next, *temp = head;
-//     int use[999] = {0};
-//     while (p != NULL){
-//         if (use[p->value]) {
-//             temp->next = p->next;
-//             free(p);
-//             length--;
-//             p = temp->next;
-//             continue;
-//         }
-//         use[p->value] = 1;
-//         temp = p;
-//         p = p->next;
-//     }
-// }
-
 void ADT_list::Reverse(){
     if (length < 1) return;
     node *p, *temp, *tmp = NULL;
@@ -191,70 +188,3 @@ void ADT_list::Reverse(){
     }
     head->next = tmp;
 }
-
-// void ADT_list::Bubble_Sort(){
-//     for (int i = 1; i <= length ; i++){
-//         node *p = head, *temp = p->next, *tmp = temp->next;
-//         int times = length - i;
-//         while (times--){
-//             if (temp->value > tmp->value){
-//                 p->next = temp->next;
-//                 temp->next = tmp->next;
-//                 tmp->next = temp;
-//             }
-//             p = p->next;
-//             temp = p->next;
-//             tmp = temp->next;
-//         }
-//     }
-// }
-
-// void ADT_list::Select_sort(){
-//     node *p = head->next, *temp = p->next;
-//     for (int i = 0; i < length - 1; i++){
-//         int minn = 0x3f3f3f3f;
-//         while(temp){
-//             minn = temp->value < minn ? temp->value : minn;
-//             temp = temp->next;
-//         }
-//         SetElem(LocateElem(minn), p->value);
-//         SetElem(i, minn);
-//         p = p->next;
-//         temp = p->next;
-//     }
-// }
-
-// ADT_list ADT_list::Union(ADT_list B){
-//     ADT_list C;
-//     C.InitLIst();
-//     int index = 0;
-//     node *p = head->next;
-//     while(p){
-//         if (B.LocateElem(p->value) >= 0){
-//             C.InsertElem(++index, p->value);
-//         }
-//         p = p->next;
-//     }
-//     // ListTraverse();
-//     // B.ListTraverse();
-//     return C;
-// }
-
-// void ADT_list::Josephus(int m){
-//     node *p = head->next, *last = p, *tmp = head;
-//     while(last->next)
-//         last = last->next;
-//     last->next = head->next;
-//     while(length--){
-//         int temp = m;
-//         while(--temp){
-//             p = p->next;
-//             tmp = tmp->next;
-//         }
-//         printf("%d ", p->value);
-//         tmp->next = p->next;
-//         last = p;
-//         p = p->next;
-//         free(last);
-//     }
-// }

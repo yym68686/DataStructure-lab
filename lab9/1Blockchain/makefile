@@ -15,4 +15,4 @@ $(OUT): $(OBJ)
 	@$(CC) $(OBJ)
 
 $(OBJ): $(IN)
-	@$(CC) -c $(IN) -w
+	@$(CC) -c $(IN)

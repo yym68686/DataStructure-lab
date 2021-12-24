@@ -4,7 +4,9 @@ class ADT_list{
 public:
     typedef struct node
     {
-        int x1, y1, x2, y2;
+        int number;
+        char information[100];
+        int Checkcode;
         node *next;
     } node;
     node *head;
@@ -20,14 +22,12 @@ public:
     int PriorElem(int);
     int NextElem(int);
     void ListTraverse();
+    void CreateList(char*, int);
+    void CheckList();
     int SetElem(int index, int num);
-    void InsertElem(int , int ,int ,int ,int);
+    void InsertElem(char*);
+    int GetCheckcode();
     void DeleteElem(int index);
-    void Remove();
     void Reverse();
-    void Bubble_Sort();
-    void Select_sort();
-    ADT_list Union(ADT_list B);
-    void Josephus(int);
 };
 #endif
