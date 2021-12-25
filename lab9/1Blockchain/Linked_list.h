@@ -24,7 +24,7 @@ public:
     void ListTraverse();
     void CreateList(char*, int);
     int CheckList();
-    int SetElem(int index, int num);
+    void SetStr(int, char*);
     void InsertElem(char*);
     int GetCheckcode();
     void DeleteElem(int index);

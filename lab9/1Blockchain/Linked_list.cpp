@@ -134,20 +134,27 @@ int ADT_list::CheckList(){
     return 1;
 }
 
-int ADT_list::SetElem(int index, int num){
+void ADT_list::SetStr(int index, char* str){
     node *p;
     int i = 0;
     p = head->next;
-    while (p != NULL){
-        if (index != i++) {
-            p = p->next;
-            continue;
+    while (p && index != i++) p = p->next;
+    strcpy(p->information, str);
+    while(p) {
+        int sum = 0;
+        for (int i = 0; i < strlen(p->information); i++)
+            sum += p->information[i];
+        if (p->number) {
+            node *temp = head;
+            sum += p->number;
+            while (temp->next != p) temp = temp->next;
+            sum += temp->Checkcode;
         }
-        int old = p->number;
-        p->number = num;
-        return old;
+        // printf("%d %d %d\n", sum % 113, p->Checkcode, p->number);
+        // if (sum % 113 != p->Checkcode) return p->number + 100;
+        p->Checkcode = sum % 113;
+        p = p->next;
     }
-    return 0;
 }
 
 void ADT_list::InsertElem(char* str){

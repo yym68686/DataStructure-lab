@@ -13,4 +13,5 @@ int main(){
     while (scanf("%s%d", &str, &check) != EOF) list.CreateList(str, check);
     list.ListTraverse();
     (num = list.CheckList()) < 100 ? puts("Accept!") : printf("The %dth node Error!", num - 100);
+    
 }
