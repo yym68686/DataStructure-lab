@@ -134,7 +134,7 @@ int ADT_list::CheckList(){
     return 1;
 }
 
-void ADT_list::SetStr(int index, char* str){
+void ADT_list::SetStr(int index, const char* str){
     node *p;
     int i = 0;
     p = head->next;
