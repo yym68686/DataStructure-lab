@@ -13,6 +13,7 @@
 using namespace std;
 //控制迷宫的复杂度，数值越大复杂度越低，最小值为0
 static int Rank = 0;
+int startx = 2, starty = 1;
 
 //生成迷宫
 void CreateMaze(int **maze, int x, int y);
@@ -34,7 +35,7 @@ int main(void) {
 	}
 
 	//创造迷宫，（2，2）为起点
-	CreateMaze(Maze, 2, 2);
+	CreateMaze(Maze, startx, starty + 1);
 
 	//画迷宫的入口和出口
 	Maze[2][1] = ROUTE;

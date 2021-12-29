@@ -20,7 +20,6 @@ int main(){
         scanf("%d", &maze[i][j]);
     for (int i = n; i >= 1; i--)
         if (!maze[i][n]) endx = i, endy = n;
-    maze[2][0] = 1;
 
     Pos *point = new Pos;
     point->x = 2;
@@ -40,8 +39,8 @@ int main(){
             while (point)
                 maze[point->x][point->y] = 2, point = point->last;
 
-            for (int i = 1; i <= n; i++) {
-                for (int j = 1; j <= n; j++) {
+            for (int i = 0; i <= n; i++) {
+                for (int j = 0; j <= n; j++) {
                     if (maze[i][j] == 0)
                         printf("  ");
                     else if (maze[i][j] == 2)
