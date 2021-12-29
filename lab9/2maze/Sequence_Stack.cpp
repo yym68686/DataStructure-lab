@@ -3,6 +3,7 @@
 
 void ADT_Stack::InitStack(){
     rear++;
+    
 }
 void ADT_Stack::DestoryStack(){
     rear = -1;
@@ -21,8 +22,7 @@ Pos ADT_Stack::GetTop(){
 }
 void ADT_Stack::StackTraverse(){
     for (int i = 1; i <= rear; i++)
-        printf("%d ", Stack[i]);
-    printf("\n");
+        printf("%d %d\n", Stack[i].x, Stack[i].y);
 }
 void ADT_Stack::Push(Pos point){
     Stack[++rear] = point;

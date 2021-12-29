@@ -1,9 +1,10 @@
 #ifndef SEQUENCE_Stack_H
 #define SEQUENCE_Stack_H
-typedef struct
+typedef struct Pos
 {
 	int x;
 	int y;
+    Pos *last;
 } Pos;
 class ADT_Stack{
 public:

@@ -1,11 +1,12 @@
 CC = g++
+
 OUT1 = MazeGeneration.exe
 OBJ1 = MazeGeneration.o
 
 OUT2 = main.exe
-OBJ2 = main.o
+OBJ2 = main.o Sequence_Stack.o
 
-IN = main.cpp MazeGeneration.cpp
+IN = main.cpp MazeGeneration.cpp Sequence_Stack.cpp
 
 build: $(OUT1) $(OUT2)
 
