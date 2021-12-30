@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Preparation of The Models}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Assumptions}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Notations}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}The Preliminary Model}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Carbon Cycle and Fungi}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Construction of Fungal Growth Rate Model}{3}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Brief Introduction of Modeling Process}{3}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Verify and Interpret Mechanism}{4}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Simplified to Mathematical Model}{4}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Construction of Decomposition Rate Model}{5}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Brief Introduction of Modeling Process}{5}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Verify and Interpret Mechanism}{5}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Simplified to Mathematical Model}{7}{subsubsection.3.3.3}%
+\contentsline {section}{\numberline {4}The Interactions Between Different Species of Fungi}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Fungi Classification}{7}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Assumptions Based on the Above Clustering Results}{7}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Analysis of Clustering Results}{8}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}The Merging of Fungal Interactions}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The Optimization of The Preliminary Model}{11}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Simplified to Mathematical Model}{11}{subsubsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.4}The Interactions Between the Different Types of Fungi}{11}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Examine the Sensitivity Rapid Fluctuations in the Environment}{12}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Predictions About The Relative Advantages And Disadvantages}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Predictions About The Relative Advantages And Disadvantages For Each Species And Combinations of Species}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The Survival Of Species In Various Environments}{14}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Fungal Species Diversity And Ecological Protection}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Relationship between fungal species diversity and carbon dioxide}{16}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Model Simulation In Different Environments}{17}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Reasonable Explanation And Hypothesis}{18}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Two-page Article}{18}{section.7}%
+\contentsline {section}{References}{20}{Item.23}%
+\contentsfinish 

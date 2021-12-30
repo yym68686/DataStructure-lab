@@ -3,7 +3,6 @@
 
 void ADT_Stack::InitStack(){
     rear++;
-    
 }
 void ADT_Stack::DestoryStack(){
     rear = -1;
