@@ -15,7 +15,6 @@ int main(void) {
 	while (--num)
 		out << num << endl;
 	out.close();
-
 	num = 10;
 	for (int i = 3; i <= num; i++){
 		out.open(to_string(i) + "Sample");

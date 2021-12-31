@@ -1,26 +1,12 @@
 CC = g++
+SOURCE := NumGeneration.cpp Sort.cpp
 
-OUT1 = NumGeneration.exe
-OBJ1 = NumGeneration.o
-
-OUT2 = InsertSort.exe
-OBJ2 = InsertSort.o
-
-IN = InsertSort.cpp NumGeneration.cpp
-
-build: $(OUT1) $(OUT2)
-
-run: $(OUT1) $(OUT2)
-	@./$(OUT1);./$(OUT2)
+build:
+	@$(foreach var,$(SOURCE),\
+		$(CC) -c $(var); \
+		$(CC) $(subst .cpp,.o,$(var)) -o $(subst .cpp,.exe,$(var)); \
+		./$(subst .cpp,.exe,$(var));\
+	)
 
 clean:
-	@rm -f *.o $(OUT1) $(OUT2) *Sample
-
-$(OUT1): $(OBJ1)
-	@$(CC) $(OBJ1) -o $(OUT1)
-
-$(OUT2): $(OBJ2)
-	@$(CC) $(OBJ2) -o $(OUT2)
-
-$(OBJ): $(IN)
-	@$(CC) -c $(IN)
+	@rm -f *.o *.exe *Sample
