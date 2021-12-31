@@ -15,5 +15,4 @@ int main(){
     (num = list.CheckList()) < 100 ? puts("Accept!") : printf("The %dth node Error!\n\n", num - 100);
     list.SetStr(1, "22");
     list.ListTraverse();
-    
 }
