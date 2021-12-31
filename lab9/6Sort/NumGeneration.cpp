@@ -12,7 +12,7 @@ int main(void) {
 	out.close();
     out.open("2Sample");
 	num = 50000;
-	while (--num)
+	while (num--)
 		out << num << endl;
 	out.close();
 	num = 10;

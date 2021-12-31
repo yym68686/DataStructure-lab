@@ -28,6 +28,22 @@ void BubbleSort(int a[], int n){
         }
 }
 
+void QuickSort(int num[], int left, int right) {
+    if (num == NULL || left >= right) return;
+    int i = left;
+    int j = right;
+    int temp = num[i];
+    while (i < j) {
+        while (i < j && num[j] >= temp) j--;
+        num[i] = num[j];
+        while (i < j && num[i] <= temp) i++;
+        num[j] = num[i];
+        num[i] = temp;
+    }
+    QuickSort(num, left, i - 1);
+    QuickSort(num, i + 1, right);
+}
+
 void SelectSort(int a[], int n){
     for(int i = 0; i < n; i++){
         int minn = 0x3f3f3f3f, index;
@@ -51,13 +67,19 @@ int main(){
         starttime = clock();
         InsertSort(arr, n);
         endtime = clock();
-        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s ";
+        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
 
         for (int i = 0; i < n; i++) arr[i] = num[i];
         starttime = clock();
         BubbleSort(arr, n);
         endtime = clock();
-        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s ";
+        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
+
+        for (int i = 0; i < n; i++) arr[i] = num[i];
+        starttime = clock();
+        QuickSort(arr, 0, n);
+        endtime = clock();
+        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
 
         for (int i = 0; i < n; i++) arr[i] = num[i];
         starttime = clock();
