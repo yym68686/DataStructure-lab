@@ -39,22 +39,6 @@ void BubbleSort(int a[], int n){
         }
 }
 
-// void QuickSort(int a[], int left, int right) {
-//     if (a == NULL || left >= right) return;
-//     int i = left;
-//     int j = right;
-//     int temp = a[i];
-//     while (i < j) {
-//         while (i < j && a[j] >= temp) j--;
-//         a[i] = a[j];
-//         while (i < j && a[i] <= temp) i++;
-//         a[j] = a[i];
-//     }
-//     a[i] = temp;
-//     QuickSort(a, left, i - 1);
-//     QuickSort(a, i + 1, right);
-// }
-
 void QuickSort(int a[], int left, int right) {
     if (a == NULL || left >= right) return;
     int i = left;
@@ -85,6 +69,31 @@ void SelectSort(int a[], int n){
     }
 }
 
+void max_heapify(int arr[], int start, int end) {
+    int dad = start;
+    int son = dad * 2 + 1;
+    while (son <= end) {
+        if (son + 1 <= end && arr[son] < arr[son + 1])
+            son++;
+        if (arr[dad] > arr[son])
+            return;
+        else {
+            swap(arr[dad], arr[son]);
+            dad = son;
+            son = dad * 2 + 1;
+        }
+    }
+}
+
+void HeapSort(int arr[], int len) {
+    for (int i = len / 2 - 1; i >= 0; i--)
+        max_heapify(arr, i, len - 1);
+    for (int i = len - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);
+        max_heapify(arr, 0, i - 1);
+    }
+}
+
 int main(){
     cout << setw(2 * w + 4) << "Insert" << setw(w + 1) << "Shell" << setw(w + 1) << "Bubble" << setw(w + 1) << "Select" << setw(w + 1) << "Heap" << setw(w + 1) << "Insert" << setw(w + 1) << "Insert" << setw(w + 1) << "Insert" << endl;
     while (inde != 11){
@@ -104,7 +113,7 @@ int main(){
         starttime = clock();
         ShellSort(arr, n);
         endtime = clock();
-        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s" << endl;
+        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
 
         for (int i = 0; i < n; i++) arr[i] = num[i];
         starttime = clock();
@@ -124,10 +133,15 @@ int main(){
         endtime = clock();
         cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
 
+        for (int i = 0; i < n; i++) arr[i] = num[i];
+        starttime = clock();
+        HeapSort(arr, n);
+        endtime = clock();
+        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s" << endl;
 
-        ReadFile.open("Sample");
+        ofstream out("Sample");
         for (int i = 0; i < n; i++)
-            ReadFile << arr[i] << endl;
-        ReadFile.close();
+            out << arr[i] << endl;
+        out.close();
     }
 }
