@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <iomanip>
 using namespace std;
-int inde = 1, num[55555], n, arr[55555], w = 7, mergearr[55555];
+int inde = 1, n, w = 7, arr[55555], num[55555], mergearr[55555];
 clock_t starttime, endtime;
 string temp;
 
@@ -39,22 +39,22 @@ void BubbleSort(int a[], int n){
         }
 }
 
-void QuickSort(int a[], int left, int right) {
-    if (a == NULL || left >= right) return;
+void QuickSort(int left, int right) {
+    if (arr == NULL || left >= right) return;
     int i = left;
     int j = right;
-    int key = a[i];
+    int key = arr[i];
     while (i < j) {
-        while (i < j && a[j] >= key)
+        while (i < j && arr[j] >= key)
             j--;
-        a[i] = a[j];
-        while (i < j && a[i] <= key)
+        arr[i] = arr[j];
+        while (i < j && arr[i] <= key)
             i++;
-        a[j] = a[i];
+        arr[j] = arr[i];
     }
-    a[i] = key;
-    QuickSort(a, left, i - 1);
-    QuickSort(a, i + 1, right);
+    arr[i] = key;
+    QuickSort(left, i - 1);
+    QuickSort(i + 1, right);
 }
 
 void SelectSort(int a[], int n){
@@ -120,10 +120,6 @@ void merge(int a[], int s, int e, int b[])
         merge(a, mid + 1, e, b);
         mergesort(a, s, mid, e, b);
     }
-}
-
-void RadixSort(){
-
 }
 
 int maxbit(int data[], int n) //辅助函数，求数据的最大位数
@@ -205,7 +201,7 @@ int main(){
 
         // for (int i = 0; i < n; i++) arr[i] = num[i];
         // starttime = clock();
-        // QuickSort(arr, 0, n - 1);
+        // QuickSort(0, n - 1);
         // endtime = clock();
         // cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
 
