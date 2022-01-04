@@ -35,11 +35,11 @@
 \contentsline {subsection}{\numberline {（六）}改进方法}{19}{}%
 \contentsline {section}{\numberline {六、\nobreakspace {}}排序算法比较}{19}{}%
 \contentsline {subsection}{\numberline {（一）}数据结构}{19}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{19}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{19}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{19}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{19}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{19}{}%
-\contentsline {section}{\numberline {七、\nobreakspace {}}总结}{19}{}%
-\contentsline {subsection}{\numberline {（一）}代码行数}{19}{}%
-\contentsline {subsection}{\numberline {（二）}心得体会}{20}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{20}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{20}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{22}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{22}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{22}{}%
+\contentsline {section}{\numberline {七、\nobreakspace {}}总结}{23}{}%
+\contentsline {subsection}{\numberline {（一）}代码行数}{23}{}%
+\contentsline {subsection}{\numberline {（二）}心得体会}{23}{}%

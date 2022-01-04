@@ -873,12 +873,101 @@ $$
 
 \section{排序算法比较}
 \subsection{数据结构}
+各种排序算法，都是数组。
 \subsection{算法设计思想}
+
+\begin{enumerate}
+	\item 直接插入排序：将一条记录插入到已排好的有序表中，从而得到一个新的、记录数量增1的有序表。
+	\item 希尔排序：希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至 1 时，整个文件恰被分成一组，算法便终止。
+	\item 冒泡排序：依次比较两个相邻的元素，如果顺序（如从大到小、首字母从Z到A）错误就把他们交换过来。走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。
+	\item 快速排序：挑选基准值：从数列中挑出一个元素，称为“基准”（pivot），分割：重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（与基准值相等的数可以到任何一边）。在这个分割结束之后，对基准值的排序就已经完成，递归排序子序列：递归地将小于基准值元素的子序列和大于基准值元素的子序列排序。
+	\item 选择排序：第一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后再从剩余的未排序元素中寻找到最小（大）元素，然后放到已排序的序列的末尾。 以此类推，直到全部待排序的数据元素的个数为零。
+	\item 堆排序：利用堆这种数据结构所设计的一种排序算法。 堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。
+	\item 归并排序：将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。 若将两个有序表合并成一个有序表，称为二路归并。
+	\item 基数排序：将整数按位数切割成不同的数字，然后按每个位数分别比较。具体做法是：将所有待比较数值统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。
+\end{enumerate}\par
+
 \subsection{源程序}
+
+\begin{lstlisting}[caption=Sort.cpp,captionpos=b]
+
+\end{lstlisting}
+
+\begin{lstlisting}[caption=NumGeneration.cpp,captionpos=b]
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <time.h>
+using namespace std;
+int num = 50000, n, a = num;
+int main(void) {
+    srand((unsigned)time(NULL));
+    ofstream out("1Sample");
+    while (num)
+        out << a - num-- << endl;
+    out.close();
+
+    out.open("2Sample");
+    num = a;
+    while (num--) out << num << endl;
+    out.close();
+
+    num = 10;
+    for (int i = 3; i <= num; i++){
+        out.open(to_string(i) + "Sample");
+        n = a;
+        while (n--)
+            out << rand() % a << endl;
+        out.close();
+    }
+    return 0;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Makefile,captionpos=b]
+CC = g++
+SOURCE := NumGeneration.cpp Sort.cpp
+
+build:
+    @$(foreach var,$(SOURCE),\
+        $(CC) -c $(var); \
+        $(CC) $(subst .cpp,.o,$(var)) -o $(subst .cpp,.exe,$(var)); \
+        ./$(subst .cpp,.exe,$(var));\
+    )
+
+clean:
+    @rm -f *.o *.exe *Sample
+\end{lstlisting}
+
 \subsection{测试数据及其结果}
+
+测试数据用NumGeneration.cpp生成10个每个含有50000个元素的样本。
+
+\begin{lstlisting}[caption=结果,captionpos=b]
+          Insert   Shell  Bubble  Select    Heap   Merge   Radix  Insert
+1Sample:  0.000s  0.003s  3.064s  2.685s  0.010s  0.000s  0.015s
+2Sample:  4.707s  0.003s  5.329s  2.825s  0.009s  0.004s  0.004s
+3Sample:  2.413s  0.010s  7.257s  2.761s  0.011s  0.007s  0.004s
+4Sample:  2.793s  0.010s  7.300s  2.763s  0.011s  0.007s  0.004s
+5Sample:  2.566s  0.011s  7.392s  2.733s  0.011s  0.007s  0.004s
+6Sample:  2.472s  0.010s  7.217s  2.662s  0.012s  0.007s  0.004s
+7Sample:  2.367s  0.010s  6.910s  2.611s  0.011s  0.006s  0.004s
+8Sample:  2.302s  0.010s  6.812s  2.656s  0.011s  0.006s  0.003s
+9Sample:  2.412s  0.011s  7.042s  2.717s  0.011s  0.007s  0.004s
+10Sample: 2.337s  0.010s  7.519s  2.815s  0.016s  0.008s  0.005s
+\end{lstlisting}
+
 \subsection{时间复杂度}
+
+\begin{figure}[htbp] % h为当前位置，!htb为忽略美学标准，htbp为浮动图形
+    \centering
+    \includegraphics[width=13cm]{3.jpg}
+    \caption{排序算法比较}
+\end{figure}
+
 \subsection{改进方法}
 
+每种排序算法都是固定的，不需要改进。
 
 \section{总结}
 \subsection{代码行数}
