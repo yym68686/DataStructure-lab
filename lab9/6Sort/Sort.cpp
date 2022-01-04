@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <iomanip>
 using namespace std;
-int inde = 1, num[55555], n, arr[55555], w = 7;
+int inde = 1, num[55555], n, arr[55555], w = 7, mergearr[55555];
 clock_t starttime, endtime;
 string temp;
 
@@ -94,8 +94,36 @@ void HeapSort(int arr[], int len) {
     }
 }
 
+void mergesort(int a[], int s, int mid, int e, int b[])
+{
+    int i = s, j = mid+1, q = s, m = mid;
+    while (i <= m && j <= e)
+    {
+        if (a[i] < a[j])
+            b[q++] = a[i++];
+        else
+            b[q++] = a[j++];
+    }
+    while (i <= m)
+        b[q++] = a[i++];
+    while (j <= e)
+        b[q++] = a[j++];
+    for (int i = s; i <= e;a[i]=b[i],i++);
+}
+
+void merge(int a[], int s, int e, int b[])
+{
+    if (s < e)
+    {
+        int mid = s + (e - s) / 2;
+        merge(a, s, mid, b);
+        merge(a, mid + 1, e, b);
+        mergesort(a, s, mid, e, b);
+    }
+}
+
 int main(){
-    cout << setw(2 * w + 4) << "Insert" << setw(w + 1) << "Shell" << setw(w + 1) << "Bubble" << setw(w + 1) << "Select" << setw(w + 1) << "Heap" << setw(w + 1) << "Insert" << setw(w + 1) << "Insert" << setw(w + 1) << "Insert" << endl;
+    cout << setw(2 * w + 4) << "Insert" << setw(w + 1) << "Shell" << setw(w + 1) << "Bubble" << setw(w + 1) << "Select" << setw(w + 1) << "Heap" << setw(w + 1) << "Merge" << setw(w + 1) << "Insert" << setw(w + 1) << "Insert" << endl;
     while (inde != 11){
         n = 0;
         fstream ReadFile(to_string(inde) + "Sample");
@@ -137,11 +165,17 @@ int main(){
         starttime = clock();
         HeapSort(arr, n);
         endtime = clock();
+        cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
+
+        for (int i = 0; i < n; i++) arr[i] = num[i];
+        starttime = clock();
+        merge(arr, 0, n - 1, mergearr);
+        endtime = clock();
         cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s" << endl;
 
         ofstream out("Sample");
         for (int i = 0; i < n; i++)
-            out << arr[i] << endl;
+            out << mergearr[i] << endl;
         out.close();
     }
 }
