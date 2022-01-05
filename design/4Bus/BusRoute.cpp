@@ -140,10 +140,10 @@ class BusStationDatabase
 			dijkstra();
 			for (int i = 1; i <= StationNumber; i++)
 				if (i == StationMap[end]) {
-					cout << dis[i] << endl;
+					cout << "经过站点最少: " << dis[i] << "站" << endl;
 					int p = path[i];
 					PrintLeastStationRoute(i);
-					cout << endl;
+					cout << endl << endl;
 				}
 		}
 		void LeastChangeRoute(){
@@ -166,7 +166,7 @@ class BusStationDatabase
 				if (p->StationNum == StationMap[end]) {
 					point = ReverseList(p);
 					point->BusNum = point->last->BusNum;
-					cout << endl;
+					cout << "转车次数最少: " << endl;
 					while (point->last){
 						int tmp = point->StationNum;
 						auto ss = find_if(StationMap.begin(), StationMap.end(), FindKey(tmp));
