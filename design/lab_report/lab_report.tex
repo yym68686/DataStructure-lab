@@ -857,11 +857,318 @@ $$
 
 \section{公交线路提示}
 \subsection{数据结构}
+栈，队列，邻接矩阵，Dijkstra算法，广度优先搜索
 \subsection{算法设计思想}
+
+\begin{enumerate}
+   \item 最短路径：利用邻接矩阵Dijkstra算法，计算两点之间的最短路径。
+   \item 最少转乘：采用广度优先遍历算法，判断起点所涉及的每辆公交车经过的所有站点，如果有终点，则无需转车。若无终点，则让起点所涉及的每辆公交车经过的所有站点进入队列，通过Visited数组判断该站点是否已经访问过。队列元素出队，继续判断该点所涉及的每辆公交车经过的所有站点，重复以上步骤，直至找到所需终点。
+\end{enumerate}\par
+
 \subsection{源程序}
+\begin{lstlisting}[caption=BusRoute.cpp,captionpos=b]
+#include <map>
+#include <list>
+#include <queue>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <cstring>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+#define INF 0x3f3f3f3f
+#define maxn 40000
+
+vector<string> split(const string& str, const string& delim) {
+    vector<string> res;
+    if("" == str) return res;
+    //先将要切割的字符串从string类型转换为char*类型
+    char * strs = new char[str.length() + 1];
+    strcpy(strs, str.c_str());
+
+    char * d = new char[delim.length() + 1];
+    strcpy(d, delim.c_str());
+
+    char *p = strtok(strs, d);
+    while(p) {
+        string s = p; //分割得到的字符串转换为string类型
+        res.push_back(s); //存入结果数组
+        p = strtok(NULL, d);
+    }
+    return res;
+}
+
+class FindKey
+{
+private:
+    int num;
+public:
+    FindKey(int n) :num(n){}
+    bool operator ()(map<string, int>::value_type item){
+        return item.second == num;
+    }
+};
+
+class BusStationDatabase
+{
+    private:
+        typedef struct Pos
+        {
+            int StationNum;
+            int BusNum;
+            Pos *last;
+        } Pos;
+
+        list<string> stations;
+        int StationNumber;
+        int RouteNumber;
+        int StartStaionNum;
+        map<string, int> StationMap;           //站点及其编号的映射
+        map<int, vector<string> > BusInfo;     //第几路公交车及其经过站点的映射
+        map<string, vector<int> > StationInfo; //每个站点都有哪些公交车经过
+        queue<Pos> Queue;
+
+        struct Edge{
+            int v;
+            int len;
+            int next;
+        } edge[111111];
+        int head[maxn], cnt = 0;
+        int from, to;
+        string start, end;
+        int visit[maxn];
+        int dis[maxn], path[maxn];
+
+
+    public:
+        BusStationDatabase(){
+            StationNumber = 1;
+            RouteNumber = 0;
+        }
+        void LoadData(){
+            ifstream inputfile("NanjingBusRoute");
+            if(inputfile.fail()){
+                cout<<"Open failed."<<endl;
+                inputfile.close();
+                return;
+            }
+            string input_line;
+            while(!inputfile.eof()){
+                getline(inputfile, input_line);
+                vector<string> splitarr = split(input_line, "   ");
+                splitarr[0].pop_back();
+                vector<string> curBusStation = split(splitarr[1], ",");
+                BusInfo[stoi(splitarr[0])] = curBusStation;
+                for (auto i : curBusStation){
+                    auto key = StationMap.find(i);
+                    if (key == StationMap.end())
+                        StationMap[i] = StationNumber++;
+                    StationInfo[i].push_back(stoi(splitarr[0]));
+                }
+            }
+            inputfile.close();
+            StationNumber--;
+            RouteNumber = BusInfo.size();
+            return;
+        }
+        void BuildGraph(){
+            for (auto i : BusInfo) {
+                for(int j = 0; j < i.second.size() - 1; j++){
+                    from = StationMap[i.second[j]];
+                    to = StationMap[i.second[j + 1]];
+                    addedge(from, to, 1);
+                    addedge(to, from, 1);
+                }
+            }
+        }
+        void PrintLeastStationRoute(int s){
+            if (!s) return;
+            PrintLeastStationRoute(path[s]);
+            auto it = find_if(StationMap.begin(), StationMap.end(), FindKey(s));
+            if (it != StationMap.end())
+                if (path[s])
+                    cout << "->" << (*it).first;
+                else
+                    cout << (*it).first;
+        }
+        void LeastStationRoute(){
+            freopen("StartEndStation", "r", stdin);
+            cin >> start >> end;
+            memset(path, 0, sizeof(path));
+            memset(visit, 0, sizeof(visit));
+            int flag = 0;
+            auto key = StationMap.find(start);
+            if (key == StationMap.end()) flag = 1;
+            key = StationMap.find(end);
+            if (key == StationMap.end()) flag = 1;
+            if (flag) {
+                cout << "error!" << endl;
+                return;
+            }
+            dijkstra();
+            for (int i = 1; i <= StationNumber; i++)
+                if (i == StationMap[end]) {
+                    cout << "经过站点最少: " << dis[i] << "站" << endl;
+                    int p = path[i];
+                    PrintLeastStationRoute(i);
+                    cout << endl << endl;
+                }
+        }
+        void LeastChangeRoute(){
+            memset(path, 0, sizeof(path));
+            memset(visit, 0, sizeof(visit));
+            Pos *point = new Pos;
+            point->BusNum = 0;
+            point->last = NULL;
+            point->StationNum = StationMap[start];
+            Queue.push(*point);
+            visit[point->StationNum] = 1;
+            while (!Queue.empty()) {
+                Pos front = Queue.front();
+                Queue.pop();
+                Pos *p = new Pos;
+                p->StationNum = front.StationNum;
+                p->BusNum = front.BusNum;
+                p->last = front.last;
+                visit[p->StationNum] = 1;
+                if (p->StationNum == StationMap[end]) {
+                    point = ReverseList(p);
+                    point->BusNum = point->last->BusNum;
+                    cout << "转车次数最少: " << endl;
+                    while (point->last){
+                        int tmp = point->StationNum;
+                        auto ss = find_if(StationMap.begin(), StationMap.end(), FindKey(tmp));
+                        auto ee = find_if(StationMap.begin(), StationMap.end(), FindKey(point->last->StationNum));
+                        auto StartStation = find(BusInfo[point->last->BusNum].begin(), BusInfo[point->last->BusNum].end(), (*ss).first);
+                        auto EndStation = find(BusInfo[point->last->BusNum].begin(), BusInfo[point->last->BusNum].end(), (*ee).first);
+                        if (StartStation > EndStation) reverse(BusInfo[point->last->BusNum].begin(), BusInfo[point->last->BusNum].end());
+                        int flag = 0;
+                        for (auto i : BusInfo[point->last->BusNum]) {
+                            if (i == (*ss).first || flag) {
+                                if (i == (*ee).first){
+                                    cout << i << "(" << point->last->BusNum << "路)";
+                                    break;
+                                }
+                                cout << i << "(" << point->last->BusNum << "路)->";
+                                flag = 1;
+                            }
+                        }
+                        if (point->last->last) cout << endl << "转" << endl;
+                        point = point->last;
+                    }
+                    return;
+                }
+                auto StationName = find_if(StationMap.begin(), StationMap.end(), FindKey(p->StationNum));
+                for (auto i : StationInfo[(*StationName).first]) { //能经过该站点所有公交车的列表
+                    for (auto j : BusInfo[i]) { // 该公交车经过的所有站点列表
+                        if (!visit[StationMap[j]]) { //如果这个站点没有被访问过，就加到队列里
+                            point = new Pos;
+                            point->StationNum = StationMap[j];
+                            point->BusNum = i;
+                            point->last = p;
+                            Queue.push(*point);
+                        }
+                    }
+                }
+            }
+        }
+        Pos* ReverseList(Pos *root){
+            Pos *p, *temp, *tmp = NULL;
+            temp = p = root;
+            while(temp){
+                temp = p->last;
+                p->last = tmp;
+                tmp = p;
+                p = temp;
+            }
+            return tmp;
+        }
+        void addedge(int from, int to, int len){
+            edge[++cnt].v = to;
+            edge[cnt].len = len;
+            edge[cnt].next = head[from];
+            head[from] = cnt;
+        }
+        void dijkstra(){
+            for (int i = 1; i <= StationNumber; i++)
+                dis[i] = INF;
+            int temp = StationMap[start];
+            dis[temp] = 0;
+            int minn;
+            while (!visit[temp]){
+                visit[temp] = 1;
+                for (int j = head[temp]; j; j = edge[j].next)
+                    if (!visit[edge[j].v] && dis[edge[j].v] > dis[temp] + edge[j].len)
+                        dis[edge[j].v] = dis[temp] + edge[j].len, path[edge[j].v] = temp;
+                minn = INF;
+                for (int j = 1; j <= StationNumber; j++)
+                    if (!visit[j] && minn > dis[j])
+                        minn = dis[j], temp = j;
+            }
+        }
+        int get_StationNumber(){return StationNumber;}
+        int get_route_number(){return RouteNumber;}
+        list<string>& get_station_name_list(){return stations;}
+};
+BusStationDatabase lib;
+int main()
+{
+    lib.LoadData();
+    lib.BuildGraph();
+    lib.LeastStationRoute();
+    lib.LeastChangeRoute();
+    return 0;
+}
+\end{lstlisting}
 \subsection{测试数据及其结果}
+起点：干休所站 \par
+终点：墨香路站
+\begin{lstlisting}[caption=测试用例1,captionpos=b]
+经过站点最少: 10站
+干休所站->河路道站->中央门北站->中央门东站->龙蟠路南京站西站->龙蟠路南京站东站->新庄广场南站->长途东站站->樱铁村站->经五立交站->墨香路站
+
+转车次数最少:
+干休所站(1路)->河路道站(1路)->中央门北站(1路)->中央门南站(1路)
+转
+中央门南站(22路)->中央门东站(22路)->龙蟠路南京站西站(22路)->龙蟠路南京站东站(22路)->新庄广场西站(22路)->新庄广场北站(22路)->曹后村站(22路)->江南公交一公司站(22路)->红山森林动物园站(22路)->十字街站(22路)->省中西医结合医院站(22路)->红山路
+迈皋桥站(22路)->华电路站(22路)->长营村站(22路)->北苑新村站(22路)->月苑小区站(22路)->月苑南路站(22路)->墨香路站(22路)
+\end{lstlisting}
+
+起点：干休所站 \par
+终点：国际青年文化中心站
+\begin{lstlisting}[caption=测试用例2,captionpos=b]
+经过站点最少: 24站
+干休所站->河路道站->中央门北站->中央门南站->许府巷站->玄武湖公园站->中央路鼓楼
+站->中山路珠江路北站->新街口南站->三元巷站->中山南路升州路站->中华路瞻园路站->
+钓鱼台站->窑湾街站->雨花西路站->能仁里站->龙福山庄站->秋叶村站->梦都大街庐山路
+站->庐山路牡丹江街站->庐山路奥体大街站->庐山路中央公园站->庐山路嘉陵江东街站->
+江东中路江山大街站->国际青年文化中心站
+
+转车次数最少:
+干休所站(25路)->河路道站(25路)->中央门北站站(25路)->中央门南站站(25路)->许府巷
+站(25路)->玄武湖公园站(25路)->中山路鼓楼站(25路)->鼓楼医院站(25路)->中山路珠江
+路南站(25路)->新街口东站(25路)->大行宫西站(25路)->大行宫东站(25路)->中山东路逸
+仙桥(毗卢寺)站(25路)->西安门站(25路)->瑞金北村站(25路)->瑞金路站(25路)
+转
+瑞金路站(7路)->解放南路站(7路)->大光路站(7路)->通济门站(7路)->建康路大中桥站(7
+路)->建康路夫子庙站(7路)->升州路三山街站(7路)->评事街站(7路)->水西门站(7路)->莫
+愁湖公园南门站(7路)->水西门大街大士茶亭站(7路)->茶亭东街站(7路)->江东门纪念馆站
+(7路)->水西门大街江东门站(7路)->江东万达广场站(7路)->江东中路集庆门大街站(7路)->江东中路应天大街站(7路)->江东中路月安街站(7路)->江东中路兴隆大街站(7路)->兴隆
+大街燕山路站(7路)->清竹园南门站(7路)->兴隆大街华山路站(7路)->乐山路梦都大街站(7路)->金陵图书馆站(7路)->奥体中心西门站(7路)->乐山路富春江西街站(7路)->乐山路楠
+溪江西街站(7路)->乐山路河西大街站(7路)->乐山路白龙江西街站(7路)->乐山路仁恒江湾
+城站(7路)->乐山路金沙江西街站(7路)->青年文化中心东门站(7路)->国际青年文化中心站
+(7路)
+\end{lstlisting}
+
 \subsection{时间复杂度}
+\begin{enumerate}
+   \item Dijkstra算法时间复杂度：$$O(V^2)$$
+   \item 广度优先搜索时间复杂度：$$O(V)$$
+\end{enumerate}\par
+
 \subsection{改进方法}
+由于节点太多，转乘3次以上会导致广度优先搜索是速度变慢，可以使用减少不必要的步骤，来减少时间开销。
 
 \section{Hash表应用}
 \subsection{数据结构}
