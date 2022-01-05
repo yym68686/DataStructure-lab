@@ -44,13 +44,21 @@ public:
 class BusStationDatabase
 {
 	private:
+		typedef struct Pos
+		{
+			int StationNum;
+			int BusNum;
+			Pos *last;
+		} Pos;
+
 		list<string> stations;
 		int StationNumber;
 		int RouteNumber;
-		map<string, int> StationMap;           // 站点及其编号的映射
+		int StartStaionNum;
+		map<string, int> StationMap;           //站点及其编号的映射
 		map<int, vector<string> > BusInfo;     //第几路公交车及其经过站点的映射
 		map<string, vector<int> > StationInfo; //每个站点都有哪些公交车经过
-		queue<int> Queue;
+		queue<Pos> Queue;
 
 		struct Edge{
 			int v;
@@ -62,6 +70,7 @@ class BusStationDatabase
 		string start, end;
 		int visit[maxn];
 		int dis[maxn], path[maxn];
+
 
 	public:
 		BusStationDatabase(){
@@ -138,7 +147,73 @@ class BusStationDatabase
 				}
 		}
 		void LeastChangeRoute(){
-			
+			memset(path, 0, sizeof(path));
+			memset(visit, 0, sizeof(visit));
+			Pos *point = new Pos;
+			point->BusNum = 0;
+			point->last = NULL;
+			point->StationNum = StationMap[start];
+			Queue.push(*point);
+			visit[point->StationNum] = 1;
+			while (!Queue.empty()) {
+				Pos front = Queue.front();
+				Queue.pop();
+				Pos *p = new Pos;
+				p->StationNum = front.StationNum;
+				p->BusNum = front.BusNum;
+				p->last = front.last;
+				visit[p->StationNum] = 1;
+				if (p->StationNum == StationMap[end]) {
+					point = ReverseList(p);
+					point->BusNum = point->last->BusNum;
+					cout << endl;
+					while (point->last){
+						int tmp = point->StationNum;
+						auto ss = find_if(StationMap.begin(), StationMap.end(), FindKey(tmp));
+						auto ee = find_if(StationMap.begin(), StationMap.end(), FindKey(point->last->StationNum));
+						auto StartStation = find(BusInfo[point->last->BusNum].begin(), BusInfo[point->last->BusNum].end(), (*ss).first);
+						auto EndStation = find(BusInfo[point->last->BusNum].begin(), BusInfo[point->last->BusNum].end(), (*ee).first);
+						if (StartStation > EndStation) reverse(BusInfo[point->last->BusNum].begin(), BusInfo[point->last->BusNum].end());
+						int flag = 0;
+						for (auto i : BusInfo[point->last->BusNum]) {
+							if (i == (*ss).first || flag) {
+								if (i == (*ee).first){
+									cout << i << "(" << point->last->BusNum << "路)";
+									break;
+								}
+								cout << i << "(" << point->last->BusNum << "路)->";
+								flag = 1;
+							}
+						}
+						if (point->last->last) cout << endl << "转" << endl;
+						point = point->last;
+					}
+					return;
+				}
+				auto StationName = find_if(StationMap.begin(), StationMap.end(), FindKey(p->StationNum));
+				for (auto i : StationInfo[(*StationName).first]) { //能经过该站点所有公交车的列表
+					for (auto j : BusInfo[i]) { // 该公交车经过的所有站点列表
+						if (!visit[StationMap[j]]) { //如果这个站点没有被访问过，就加到队列里
+							point = new Pos;
+							point->StationNum = StationMap[j];
+							point->BusNum = i;
+							point->last = p;
+							Queue.push(*point);
+						}
+					}
+				}
+			}
+		}
+		Pos* ReverseList(Pos *root){
+			Pos *p, *temp, *tmp = NULL;
+			temp = p = root;
+			while(temp){
+				temp = p->last;
+				p->last = tmp;
+				tmp = p;
+				p = temp;
+			}
+			return tmp;
 		}
 		void addedge(int from, int to, int len){
 			edge[++cnt].v = to;
@@ -173,6 +248,6 @@ int main()
 	lib.LoadData();
 	lib.BuildGraph();
 	lib.LeastStationRoute();
-	return 0;
 	lib.LeastChangeRoute();
+	return 0;
 }
