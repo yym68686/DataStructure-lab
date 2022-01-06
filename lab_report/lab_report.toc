@@ -1,58 +1,49 @@
-\contentsline {section}{\numberline {一、\nobreakspace {}}Lab1}{4}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{4}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{4}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{4}{}%
-\contentsline {subsection}{\numberline {（四）}时间复杂度}{4}{}%
-\contentsline {subsection}{\numberline {（五）}改进方法}{4}{}%
-\contentsline {section}{\numberline {二、\nobreakspace {}}Lab2}{4}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{4}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{4}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{4}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{4}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{5}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{5}{}%
-\contentsline {section}{\numberline {三、\nobreakspace {}}Lab3}{5}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{5}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{5}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{5}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{5}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{5}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{5}{}%
-\contentsline {section}{\numberline {四、\nobreakspace {}}Lab4}{5}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{5}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{5}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{5}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{5}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{5}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{5}{}%
-\contentsline {section}{\numberline {五、\nobreakspace {}}Lab5}{5}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{5}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{5}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{5}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{5}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{5}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{5}{}%
-\contentsline {section}{\numberline {六、\nobreakspace {}}Lab6}{5}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{5}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{5}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{5}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{5}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{5}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{5}{}%
-\contentsline {section}{\numberline {七、\nobreakspace {}}Lab7}{5}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{5}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{5}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{5}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{5}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{5}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{5}{}%
-\contentsline {section}{\numberline {八、\nobreakspace {}}Lab8}{5}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{5}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{5}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{5}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{5}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{5}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{5}{}%
-\contentsline {section}{\numberline {九、\nobreakspace {}}总结}{5}{}%
-\contentsline {subsection}{\numberline {（一）}代码行数}{5}{}%
-\contentsline {subsection}{\numberline {（二）}心得体会}{6}{}%
+\contentsline {section}{\numberline {一、\nobreakspace {}}Lab1}{3}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{3}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{3}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{3}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{22}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{23}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{23}{}%
+\contentsline {section}{\numberline {二、\nobreakspace {}}Lab2}{23}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{23}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{23}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{23}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{38}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{38}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{39}{}%
+\contentsline {section}{\numberline {三、\nobreakspace {}}Lab3}{39}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{39}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{39}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{39}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{49}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{50}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{50}{}%
+\contentsline {section}{\numberline {四、\nobreakspace {}}Lab4}{50}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{50}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{50}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{50}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{55}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{55}{}%
+\contentsline {section}{\numberline {五、\nobreakspace {}}Lab5}{55}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{55}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{55}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{55}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{63}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{63}{}%
+\contentsline {section}{\numberline {六、\nobreakspace {}}Lab6}{63}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{63}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{64}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{64}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{85}{}%
+\contentsline {section}{\numberline {七、\nobreakspace {}}Lab7}{87}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{87}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{87}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{87}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{95}{}%
+\contentsline {section}{\numberline {八、\nobreakspace {}}Lab8}{95}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{95}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{95}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{95}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{95}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{97}{}%

@@ -4,6 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <iomanip>
+#include <vector>
 using namespace std;
 int inde = 1, n, w = 7, arr[55555], num[55555], mergearr[55555];
 clock_t starttime, endtime;
@@ -39,22 +40,22 @@ void BubbleSort(int a[], int n){
         }
 }
 
-void QuickSort(int left, int right) {
-    if (arr == NULL || left >= right) return;
+void QuickSort(int num[], int left, int right) {
+    if (num == NULL || left >= right) return;
     int i = left;
     int j = right;
     int key = arr[i];
     while (i < j) {
-        while (i < j && arr[j] >= key)
+        while (i < j && num[j] >= key)
             j--;
-        arr[i] = arr[j];
-        while (i < j && arr[i] <= key)
+        num[i] = num[j];
+        while (i < j && num[i] <= key)
             i++;
-        arr[j] = arr[i];
+        num[j] = num[i];
     }
-    arr[i] = key;
-    QuickSort(left, i - 1);
-    QuickSort(i + 1, right);
+    num[i] = key;
+    QuickSort(num, left, i - 1);
+    QuickSort(num, i + 1, right);
 }
 
 void SelectSort(int a[], int n){
@@ -173,11 +174,11 @@ void RadixSort(int data[], int n) //基数排序
 }
 
 int main(){
-    cout << setw(2 * w + 4) << "Insert" << setw(w + 1) << "Shell" << setw(w + 1) << "Bubble" << setw(w + 1) << "Select" << setw(w + 1) << "Heap" << setw(w + 1) << "Merge" << setw(w + 1) << "Radix" << setw(w + 1) << "Insert" << endl;
+    cout << setw(2 * w + 4) << "Insert" << setw(w + 1) << "Shell" << setw(w + 1) << "Bubble" << setw(w + 1) << "Select" << setw(w + 1) << "Heap" << setw(w + 1) << "Merge" << setw(w + 1) << "Radix" << endl;
     while (inde != 11){
         n = 0;
         fstream ReadFile(to_string(inde) + "Sample");
-        cout << setw(2) << to_string(inde++) << "Sample: ";
+        cout << setw(2) << to_string(inde) << "Sample: ";
         while(getline(ReadFile, temp)) num[n++] = stoi(temp);
         ReadFile.close();
 
@@ -199,11 +200,6 @@ int main(){
         endtime = clock();
         cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
 
-        // for (int i = 0; i < n; i++) arr[i] = num[i];
-        // starttime = clock();
-        // QuickSort(0, n - 1);
-        // endtime = clock();
-        // cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s";
 
         for (int i = 0; i < n; i++) arr[i] = num[i];
         starttime = clock();
@@ -229,9 +225,12 @@ int main(){
         endtime = clock();
         cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s" << endl;
 
-        ofstream out("Sample");
-        for (int i = 0; i < n; i++)
-            out << mergearr[i] << endl;
-        out.close();
+        // for (int i = 0; i < n; i++) arr[i] = num[i];
+        // starttime = clock();
+        // QuickSort(arr, 0, n - 1);
+        // endtime = clock();
+        // cout << setw(w) << fixed << setprecision(3) << double(endtime - starttime) / CLOCKS_PER_SEC << "s" << endl;
+
+        inde++;
     }
 }

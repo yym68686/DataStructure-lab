@@ -1,11 +1,11 @@
 CC = g++
 OUT = a.exe
 
-TARGET1 = 4Outputelement
-TARGET2 = 4Kidbrother
+# TARGET1 = 4Outputelement
+# TARGET2 = 4Kidbrother
 
-# TARGET1 = 3BinaryTreeweigh
-# TARGET2 = 3BinaryTree
+TARGET1 = 3BinaryTreeweigh
+TARGET2 = 3BinaryTree
 
 # TARGET2 = 1Graph
 OBJ = $(TARGET2).o $(TARGET1).o

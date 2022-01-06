@@ -2,3 +2,6 @@
 /*.exe
 /lab2/*.txt
 /lab3/3Eight_Queens2.cpp
+/design/3JSON/*
+!/design/3JSON/lexer.cpp
+!/design/3JSON/input

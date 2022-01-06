@@ -1,13 +1,13 @@
-NUM = 1
+# NUM = 1
 # NUM = 2
-# NUM = 3
+NUM = 3
 
-LIST = Linked_list
-# LIST = Sequence_list
+# LIST = Linked_list
+LIST = Sequence_list
 
-OP = sort
+# OP = sort
 # OP = union
-# OP = Josephus
+OP = Josephus
 
 CC = g++
 OUT = a.exe

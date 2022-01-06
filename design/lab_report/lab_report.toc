@@ -1,45 +1,80 @@
-\contentsline {section}{\numberline {一、\nobreakspace {}}区块链}{3}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{3}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{3}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{3}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{9}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{10}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{11}{}%
-\contentsline {section}{\numberline {二、\nobreakspace {}}迷宫问题}{11}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{11}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{11}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{11}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{18}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{18}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{18}{}%
-\contentsline {section}{\numberline {三、\nobreakspace {}}JSON查找}{19}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{19}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{19}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{19}{}%
+\contentsline {section}{\numberline {一、\nobreakspace {}}区块链}{4}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{4}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{4}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{4}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{10}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{11}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{12}{}%
+\contentsline {section}{\numberline {二、\nobreakspace {}}迷宫问题}{12}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{12}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{12}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{12}{}%
 \contentsline {subsection}{\numberline {（四）}测试数据及其结果}{19}{}%
 \contentsline {subsection}{\numberline {（五）}时间复杂度}{19}{}%
 \contentsline {subsection}{\numberline {（六）}改进方法}{19}{}%
-\contentsline {section}{\numberline {四、\nobreakspace {}}公交线路提示}{19}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{19}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{19}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{19}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{26}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{28}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{28}{}%
-\contentsline {section}{\numberline {五、\nobreakspace {}}Hash表应用}{28}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{28}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{28}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{28}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{28}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{28}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{28}{}%
-\contentsline {section}{\numberline {六、\nobreakspace {}}排序算法比较}{28}{}%
-\contentsline {subsection}{\numberline {（一）}数据结构}{28}{}%
-\contentsline {subsection}{\numberline {（二）}算法设计思想}{28}{}%
-\contentsline {subsection}{\numberline {（三）}源程序}{29}{}%
-\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{31}{}%
-\contentsline {subsection}{\numberline {（五）}时间复杂度}{31}{}%
-\contentsline {subsection}{\numberline {（六）}改进方法}{31}{}%
-\contentsline {section}{\numberline {七、\nobreakspace {}}总结}{31}{}%
-\contentsline {subsection}{\numberline {（一）}代码行数}{31}{}%
-\contentsline {subsection}{\numberline {（二）}心得体会}{32}{}%
+\contentsline {section}{\numberline {三、\nobreakspace {}}JSON查找}{20}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{20}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{20}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{20}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{29}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{30}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{30}{}%
+\contentsline {section}{\numberline {四、\nobreakspace {}}公交线路提示}{30}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{30}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{30}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{30}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{37}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{38}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{39}{}%
+\contentsline {section}{\numberline {五、\nobreakspace {}}Hash表应用}{39}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{39}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{39}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{39}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{44}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{44}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{44}{}%
+\contentsline {section}{\numberline {六、\nobreakspace {}}排序算法比较}{44}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{44}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{44}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{45}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{46}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{47}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{47}{}%
+\contentsline {section}{\numberline {七、\nobreakspace {}}地铁修建}{47}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{47}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{47}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{48}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{50}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{50}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{50}{}%
+\contentsline {section}{\numberline {八、\nobreakspace {}}社交网络图中结点的“重要性”计算}{50}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{50}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{50}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{50}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{54}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{54}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{54}{}%
+\contentsline {section}{\numberline {九、\nobreakspace {}}平衡二叉树操作的演示}{54}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{54}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{55}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{55}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{65}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{65}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{66}{}%
+\contentsline {section}{\numberline {十、\nobreakspace {}}Huffman编码与解码}{66}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{66}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{66}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{66}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{77}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{78}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{78}{}%
+\contentsline {section}{\numberline {十一、\nobreakspace {}}家谱管理系统}{78}{}%
+\contentsline {subsection}{\numberline {（一）}数据结构}{78}{}%
+\contentsline {subsection}{\numberline {（二）}算法设计思想}{78}{}%
+\contentsline {subsection}{\numberline {（三）}源程序}{78}{}%
+\contentsline {subsection}{\numberline {（四）}测试数据及其结果}{94}{}%
+\contentsline {subsection}{\numberline {（五）}时间复杂度}{96}{}%
+\contentsline {subsection}{\numberline {（六）}改进方法}{96}{}%
+\contentsline {section}{\numberline {十二、\nobreakspace {}}总结}{96}{}%
+\contentsline {subsection}{\numberline {（一）}代码行数}{96}{}%
+\contentsline {subsection}{\numberline {（二）}心得体会}{96}{}%
